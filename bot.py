@@ -21,10 +21,7 @@ owm = OWM(OWM_TOKEN)
 mgr = owm.weather_manager()
 
 # keyboard for weather map
-weather_keyboard = InlineKeyboardMarkup(row_width=2)
-weather_keyboard.insert(InlineKeyboardButton("Сегодня", callback_data="today"))
-weather_keyboard.insert(InlineKeyboardButton("Завтра", callback_data="tomorrow"))
-weather_keyboard.insert(InlineKeyboardButton("Поменять город", callback_data="change_city"))
+pass
 
 async def send_weather(city, chat_id, day="today"):
     try:
@@ -61,12 +58,12 @@ async def start_command(message: types.Message):
 
 @dp.message_handler(commands=['city'])
 async def city_command(message: types.Message):
-    await bot.send_message(message.chat.id, 'Пожалуйста, введите новый город(на английском).')
+    pass
 
 @dp.message_handler()
 async def set_city(message: types.Message):
     user_data[message.chat.id] = {'city': message.text}
-    await bot.send_message(message.chat.id, 'Спасибо! Теперь вы можете использовать команду /weather для получения прогноза погоды.')
+    pass
 
 @dp.message_handler(commands=['weather'])
 async def weather_command(message: types.Message):
