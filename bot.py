@@ -23,33 +23,7 @@ mgr = owm.weather_manager()
 # keyboard for weather map
 pass
 
-async def send_weather(city, chat_id, day="today"):
-    try:
-        if day == "today":
-            observation = mgr.weather_at_place(city)
-            weather = observation.weather
-        else:
-            forecast = mgr.forecast_at_place(city, 'daily')
-            weather = forecast.get_weathers()[1]  # прогноз на завтра
 
-        temp = weather.temperature('celsius')["temp"]
-        wind_speed = weather.wind()["speed"]
-        status = weather.status
-
-        await bot.send_message(
-            chat_id,
-            f"Погода в городе {city} на {day}:\n"
-            f"Температура: {temp}°C\n"
-            f"Скорость ветра: {wind_speed} м/с\n"
-            f"Осадки: {status}",
-            reply_markup=weather_keyboard
-        )
-    except Exception as e:
-        await bot.send_message(
-            chat_id,
-            f"Произошла ошибка при получении погоды для города {city}. Проверьте правильность названия города.",
-            reply_markup=weather_keyboard
-        )
 
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
