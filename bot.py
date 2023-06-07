@@ -9,7 +9,7 @@ from pyowm.utils import timestamps
 TG_TOKEN = ''
 OWM_TOKEN = ''
 
-# users dict , ДА ЭТО ОБЫЧНЫЙ СЛОВАРЬ А НЕ БД :) , после каждого ребута данные пользователей будут слетать.
+# users dict , ДА ЭТО ОБЫЧНЫЙ СЛОВАРЬ А НЕ БД :) , после каждого ребута данные пользователей будут слетать. kekw
 user_data = {}
 
 # init bot
